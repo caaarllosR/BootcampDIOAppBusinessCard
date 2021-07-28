@@ -1,6 +1,5 @@
 package br.com.dio.businesscard.ui
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +34,7 @@ class BusinessCardAdapter :
             binding.tvTelefone.text = item.telefone
             binding.tvEmail.text = item.email
             binding.tvNomeEmpresa.text = item.empresa
-            binding.cdContent.setCardBackgroundColor(Color.parseColor(item.fundoPersonalizado))
+            binding.cdContent.setCardBackgroundColor(item.fundoPersonalizado)
             binding.cdContent.setOnClickListener {
                 listenerShare(it)
             }
