@@ -3,13 +3,10 @@ package br.com.dio.businesscard.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import br.com.dio.businesscard.App
 import br.com.dio.businesscard.databinding.ActivityMainBinding
 import br.com.dio.businesscard.util.Image
-import kotlinx.android.synthetic.main.item_business_card.view.ic_delete
-import kotlinx.android.synthetic.main.item_business_card.view.ic_share
 
 
 class MainActivity : AppCompatActivity(){
