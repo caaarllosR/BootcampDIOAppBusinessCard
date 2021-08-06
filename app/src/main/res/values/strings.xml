@@ -10,4 +10,8 @@
     <string name="label_confirmar">Confirmar</string>
     <string name="label_show_success">Cartão cadastrado com sucesso.</string>
     <string name="label_share">Compartilhar</string>
+    <string name="actionShare">Share</string>
+    <string name="actionDelete">Delete</string>
+    <string name="open_bottom_sheet">Open Bottom Sheet</string>
+    <string name="selected_items">Selected Items !!</string>
 </resources>

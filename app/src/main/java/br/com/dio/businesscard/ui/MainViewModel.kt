@@ -12,6 +12,10 @@ class MainViewModel(private val businessCardRepository: BusinessCardRepository):
         businessCardRepository.insert(businessCard)
     }
 
+    fun deleteByCardId(cardId: Int) {
+        businessCardRepository.deleteByCardId(cardId)
+    }
+
     fun getAll(): LiveData<List<BusinessCard>> {
         return businessCardRepository.getAll()
     }

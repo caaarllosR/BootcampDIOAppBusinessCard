@@ -14,7 +14,7 @@ class ColorPicker() : AppCompatActivity()  {
 
         val returSelectedColor: () -> Int = { selectedColorPicker }
 
-        fun testColorPicker(viewPreview: ViewPager, v : View, appCompatActivity: AppCompatActivity) {
+        fun popupColorPicker(viewPreview: ViewPager, v : View, appCompatActivity: AppCompatActivity) {
                 ColorPickerPopup.Builder(appCompatActivity).initialColor(
                     Color.RED
                 ) // set initial color

@@ -1,10 +1,7 @@
 package br.com.dio.businesscard.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface BusinessCardDAO {
@@ -14,4 +11,7 @@ interface BusinessCardDAO {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(businessCard: BusinessCard)
+
+    @Query("DELETE FROM BusinessCard WHERE id = :cardId")
+    fun deleteByCardId(cardId: Int);
 }

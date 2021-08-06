@@ -8,11 +8,14 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.dio.businesscard.data.BusinessCard
 import br.com.dio.businesscard.databinding.ItemBusinessCardBinding
+import kotlinx.android.synthetic.main.item_business_card.view.ic_delete
+import kotlinx.android.synthetic.main.item_business_card.view.ic_share
 
 class BusinessCardAdapter :
-    ListAdapter<BusinessCard, BusinessCardAdapter.ViewHolder>(DiffCallback()) {
+    ListAdapter<BusinessCard,  BusinessCardAdapter.ViewHolder>(DiffCallback()) {
 
     var listenerShare: (View) -> Unit = {}
+    var listenerBusinessCard: (BusinessCard) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -35,8 +38,20 @@ class BusinessCardAdapter :
             binding.tvEmail.text = item.email
             binding.tvNomeEmpresa.text = item.empresa
             binding.cdContent.setCardBackgroundColor(item.fundoPersonalizado)
-            binding.cdContent.setOnClickListener {
-                listenerShare(it)
+            binding.cdContent.ic_share.setOnClickListener {
+
+                binding.cdContent.ic_delete.visibility = View.INVISIBLE
+                binding.cdContent.ic_share.visibility = View.INVISIBLE
+
+                if(binding.cdContent.ic_delete.visibility == View.INVISIBLE && binding.cdContent.ic_share.visibility == View.INVISIBLE) {
+                    listenerShare(binding.cdContent)
+                }
+
+                binding.cdContent.ic_delete.visibility = View.VISIBLE
+                binding.cdContent.ic_share.visibility = View.VISIBLE
+            }
+            binding.cdContent.ic_delete.setOnClickListener {
+                listenerBusinessCard(item)
             }
         }
     }

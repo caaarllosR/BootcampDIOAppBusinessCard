@@ -40,7 +40,7 @@ class AddBusinessCardActivity : AppCompatActivity() {
 
         binding.btnColor?.setOnClickListener(
             View.OnClickListener { v ->
-                ColorPicker.testColorPicker(binding.vwSelectedColor, v, this)
+                ColorPicker.popupColorPicker(binding.vwSelectedColor, v, this)
             }
         )
 

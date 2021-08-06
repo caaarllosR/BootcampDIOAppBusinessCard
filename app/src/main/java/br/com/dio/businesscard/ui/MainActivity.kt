@@ -3,13 +3,16 @@ package br.com.dio.businesscard.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import br.com.dio.businesscard.App
 import br.com.dio.businesscard.databinding.ActivityMainBinding
 import br.com.dio.businesscard.util.Image
+import kotlinx.android.synthetic.main.item_business_card.view.ic_delete
+import kotlinx.android.synthetic.main.item_business_card.view.ic_share
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
 
     private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
     private val adapter by lazy { BusinessCardAdapter() }
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.rvCards.adapter = adapter
+
         getAllBusinessCard()
         insertListeners()
     }
@@ -31,8 +35,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddBusinessCardActivity::class.java)
             startActivity(intent)
         }
-        adapter.listenerShare = { card ->
-            Image.share(this@MainActivity, card)
+
+        adapter.listenerShare = { viewCard ->
+            Image.share(this@MainActivity, viewCard)
+        }
+
+        adapter.listenerBusinessCard = { businessCard ->
+            mainViewModel.deleteByCardId(businessCard.id)
         }
     }
 
