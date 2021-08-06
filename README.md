@@ -17,5 +17,5 @@ Dependencia utilizada para implementar o color picker:
 implementation 'com.github.duanhong169:colorpicker:1.1.6'
 ```
 
-Repositório do projeto:
+Repositório do projeto color picker:
 https://github.com/duanhong169/ColorPicker
